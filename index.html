@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GPX.SB</title>
+
+<style>
+:root{
+    --bg:#0d1117;
+    --card:#161b22;
+    --border:#30363d;
+    --accent:#39ff88;
+    --text:#f0f6fc;
+    --muted:#8b949e;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial,sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    overflow-x:hidden;
+}
+
+/* Background Glow */
+
+body::before{
+    content:"";
+    position:fixed;
+    width:1200px;
+    height:1200px;
+    top:-500px;
+    right:-300px;
+
+    background:radial-gradient(
+        circle,
+        rgba(57,255,136,.25),
+        rgba(57,255,136,.08) 40%,
+        transparent 70%
+    );
+
+    pointer-events:none;
+    z-index:-2;
+}
+
+/* Animated Grid */
+
+body::after{
+    content:"";
+    position:fixed;
+    inset:0;
+
+    background-image:
+        linear-gradient(rgba(57,255,136,.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(57,255,136,.03) 1px, transparent 1px);
+
+    background-size:50px 50px;
+
+    animation:gridMove 20s linear infinite;
+
+    pointer-events:none;
+    z-index:-3;
+}
+
+@keyframes gridMove{
+    from{
+        transform:translateY(0);
+    }
+
+    to{
+        transform:translateY(50px);
+    }
+}
+
+/* Mouse Glow */
+
+.cursor-glow{
+    position:fixed;
+    width:300px;
+    height:300px;
+
+    background:
+    radial-gradient(
+    circle,
+    rgba(57,255,136,.15),
+    transparent 70%
+    );
+
+    pointer-events:none;
+    transform:translate(-50%,-50%);
+    z-index:-1;
+}
+
+/* Navbar */
+
+nav{
+    position:fixed;
+    top:0;
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 8%;
+    backdrop-filter:blur(20px);
+    background:rgba(13,17,23,0.8);
+    border-bottom:1px solid var(--border);
+    z-index:1000;
+}
+
+.logo-nav {
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 3px;
+  
+  text-shadow:
+    0 0 10px rgba(57, 255, 136, .8),
+    0 0 20px rgba(57, 255, 136, .5),
+    0 0 40px rgba(57, 255, 136, .3);
+}
+
+.links{
+    display:flex;
+    gap:25px;
+}
+
+.links a{
+    text-decoration:none;
+    color:var(--muted);
+    transition:.3s;
+}
+
+.links a:hover{
+    color:var(--accent);
+}
+
+/* Hero */
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:0 8%;
+}
+
+.hero-content{
+    max-width:850px;
+}
+
+.badge{
+    display:inline-block;
+    padding:8px 14px;
+    background:rgba(57,255,136,.1);
+    border:1px solid rgba(57,255,136,.2);
+    border-radius:999px;
+    color:var(--accent);
+    margin-bottom:20px;
+}
+
+h1{
+    font-size:5rem;
+    line-height:1.1;
+    margin-bottom:20px;
+}
+
+.highlight{
+    color:var(--accent);
+}
+
+.hero p{
+    font-size:1.2rem;
+    color:var(--muted);
+    margin-bottom:35px;
+    line-height:1.8;
+}
+
+.buttons{
+    display:flex;
+    gap:15px;
+}
+
+.btn{
+    padding:14px 22px;
+    border-radius:12px;
+    text-decoration:none;
+    font-weight:600;
+    transition:.3s;
+}
+
+.btn-primary{
+    background:var(--accent);
+    color:black;
+}
+
+.btn-primary:hover{
+    transform:translateY(-3px);
+}
+
+.btn-secondary{
+    border:1px solid var(--border);
+    color:white;
+}
+
+.btn-secondary:hover{
+    border-color:var(--accent);
+    color:var(--accent);
+}
+
+/* Sections */
+
+section{
+    padding:100px 8%;
+}
+
+.section-title{
+    font-size:2rem;
+    margin-bottom:30px;
+}
+
+/* Cards */
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:rgba(22,27,34,.85);
+    border:1px solid var(--border);
+    padding:25px;
+    border-radius:20px;
+    backdrop-filter:blur(10px);
+
+    transition:
+    transform .3s ease,
+    border-color .3s ease,
+    box-shadow .3s ease;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+    border-color:var(--accent);
+
+    box-shadow:
+    0 15px 35px rgba(57,255,136,.08);
+}
+
+.card h3{
+    margin-bottom:12px;
+}
+
+.card p{
+    color:var(--muted);
+    line-height:1.7;
+}
+
+/* About */
+
+.about{
+    max-width:850px;
+}
+
+.about p{
+    color:var(--muted);
+    line-height:1.9;
+}
+
+/* Footer */
+
+footer{
+    padding:50px;
+    text-align:center;
+    border-top:1px solid var(--border);
+    color:var(--muted);
+}
+
+/* Mobile */
+
+@media(max-width:768px){
+
+    h1{
+        font-size:3rem;
+    }
+
+    .buttons{
+        flex-direction:column;
+    }
+
+    .links{
+        display:none;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="cursor-glow"></div>
+
+<nav>
+
+    <div class="logo-nav">
+        GPX.SB
+    </div>
+
+    <div class="links">
+        #projectsProjects</a>
+        #labLab</a>
+        <aboutAbout</a>
+    </div>
+
+</nav>
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="badge">
+            Digital Creator • Student • Explorer
+        </div>
+
+        <h1>
+            Building ideas into
+            <span class="highlight">reality.</span>
+        </h1>
+
+        <p>
+            Welcome to GPX.SB.
+
+            A digital playground where I document projects,
+            experiments and ideas whilst exploring technology,
+            software and creative problem solving.
+
+            This is my place to build, learn and share.
+        </p>
+
+        <div class="buttons">
+
+            #projects
+                Explore Projects
+            </a>
+
+            #lab
+                Enter The Lab
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section id="projects">
+
+    <h2 class="section-title">Projects</h2>
+
+    <div class="grid">
+
+        <div class="card">
+            <h3>Web Development</h3>
+            <p>
+                Designing and building modern websites,
+                interfaces and digital experiences.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Programming</h3>
+            <p>
+                Learning through practical software
+                projects and challenges.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Experiments</h3>
+            <p>
+                Testing ideas, concepts and creative
+                solutions.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<section id="lab">
+
+    <h2 class="section-title">The Lab</h2>
+
+    <div class="grid">
+
+        <div class="card">
+            <h3>Current Focus</h3>
+            <p>
+                Learning software development,
+                web technologies and computer science.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Future Builds</h3>
+            <p>
+                Ideas, plans and concepts for
+                upcoming projects.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Learning Journey</h3>
+            <p>
+                Notes, discoveries and milestones
+                as I continue improving my skills.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<section id="about">
+
+    <h2 class="section-title">About</h2>
+
+    <div class="about">
+
+        <p>
+            Hi, I'm Seb.
+
+            I'm a student with a passion for technology,
+            software, design and digital creation.
+
+            GPX.SB is my personal corner of the internet,
+            where I share projects, experiments and things
+            
