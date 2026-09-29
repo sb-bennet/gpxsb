@@ -38,21 +38,25 @@ body{
 body::before{
     content:"";
     position:fixed;
-    width:1200px;
-    height:1200px;
-    top:-500px;
+
+    width:1400px;
+    height:1400px;
+
+    top:-600px;
     right:-300px;
 
-    background:radial-gradient(
+    background:
+    radial-gradient(
         circle,
-        rgba(57,255,136,.25),
-        rgba(57,255,136,.08) 40%,
-        transparent 70%
+        rgba(57,255,136,.35),
+        rgba(57,255,136,.12) 35%,
+        transparent 75%
     );
 
     pointer-events:none;
     z-index:-2;
 }
+``
 
 /* Animated Grid */
 
@@ -201,10 +205,16 @@ h1{
     line-height:1.1;
     margin-bottom:20px;
 }
-
 .highlight{
     color:var(--accent);
+
+    text-shadow:
+        0 0 10px rgba(57,255,136,.9),
+        0 0 25px rgba(57,255,136,.7),
+        0 0 50px rgba(57,255,136,.5),
+        0 0 100px rgba(57,255,136,.25);
 }
+`
 
 .hero p{
     font-size:1.2rem;
@@ -279,10 +289,13 @@ section{
 
 .card:hover{
     transform:translateY(-8px);
+
     border-color:var(--accent);
 
     box-shadow:
-    0 15px 35px rgba(57,255,136,.08);
+        0 0 20px rgba(57,255,136,.1),
+        0 0 40px rgba(57,255,136,.08),
+        0 0 80px rgba(57,255,136,.04);
 }
 
 .card h3{
