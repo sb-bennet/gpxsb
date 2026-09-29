@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-logo.png
-``
+<title>GPX.SB</title>
 
 <style>
+
 :root{
     --bg:#0d1117;
     --card:#161b22;
@@ -38,10 +38,8 @@ body{
 body::before{
     content:"";
     position:fixed;
-
     width:1400px;
     height:1400px;
-
     top:-600px;
     right:-300px;
 
@@ -56,7 +54,6 @@ body::before{
     pointer-events:none;
     z-index:-2;
 }
-``
 
 /* Animated Grid */
 
@@ -87,18 +84,16 @@ body::after{
     }
 }
 
-/* Mouse Glow */
-
 .cursor-glow{
     position:fixed;
-    width:300px;
-    height:300px;
+    width:700px;
+    height:700px;
 
     background:
     radial-gradient(
-    circle,
-    rgba(57,255,136,.15),
-    transparent 70%
+        circle,
+        rgba(57,255,136,.25),
+        transparent 70%
     );
 
     pointer-events:none;
@@ -126,10 +121,6 @@ nav{
     display:flex;
     align-items:center;
     gap:15px;
-
-    font-weight:700;
-    color:var(--accent);
-    letter-spacing:3px;
 }
 
 .logo-nav img{
@@ -142,33 +133,23 @@ nav{
 }
 
 .logo-nav span{
+    color:var(--accent);
+    font-weight:700;
+    letter-spacing:3px;
+
     text-shadow:
         0 0 10px rgba(57,255,136,.8),
         0 0 20px rgba(57,255,136,.5);
 }
 
-.logo-nav img{
-    height:55px;
-    width:auto;
-
-    filter:
-        drop-shadow(0 0 10px rgba(57,255,136,.8))
-        drop-shadow(0 0 25px rgba(57,255,136,.4));
-
-    transition:.3s;
-}
-
-.logo-nav img:hover{
-    transform:scale(1.05);
-}
 .links{
     display:flex;
     gap:25px;
 }
 
 .links a{
-    text-decoration:none;
     color:var(--muted);
+    text-decoration:none;
     transition:.3s;
 }
 
@@ -205,6 +186,7 @@ h1{
     line-height:1.1;
     margin-bottom:20px;
 }
+
 .highlight{
     color:var(--accent);
 
@@ -214,7 +196,6 @@ h1{
         0 0 50px rgba(57,255,136,.5),
         0 0 100px rgba(57,255,136,.25);
 }
-`
 
 .hero p{
     font-size:1.2rem;
@@ -229,6 +210,7 @@ h1{
 }
 
 .btn{
+    display:inline-block;
     padding:14px 22px;
     border-radius:12px;
     text-decoration:none;
@@ -239,6 +221,10 @@ h1{
 .btn-primary{
     background:var(--accent);
     color:black;
+
+    box-shadow:
+        0 0 20px rgba(57,255,136,.4),
+        0 0 50px rgba(57,255,136,.2);
 }
 
 .btn-primary:hover{
@@ -246,13 +232,12 @@ h1{
 }
 
 .btn-secondary{
-    border:1px solid var(--border);
-    color:white;
+    border:1px solid var(--accent);
+    color:var(--accent);
 }
 
 .btn-secondary:hover{
-    border-color:var(--accent);
-    color:var(--accent);
+    background:rgba(57,255,136,.1);
 }
 
 /* Sections */
@@ -281,10 +266,7 @@ section{
     border-radius:20px;
     backdrop-filter:blur(10px);
 
-    transition:
-    transform .3s ease,
-    border-color .3s ease,
-    box-shadow .3s ease;
+    transition:.3s;
 }
 
 .card:hover{
@@ -307,18 +289,10 @@ section{
     line-height:1.7;
 }
 
-/* About */
-
-.about{
-    max-width:850px;
-}
-
 .about p{
     color:var(--muted);
     line-height:1.9;
 }
-
-/* Footer */
 
 footer{
     padding:50px;
@@ -326,8 +300,6 @@ footer{
     border-top:1px solid var(--border);
     color:var(--muted);
 }
-
-/* Mobile */
 
 @media(max-width:768px){
 
@@ -343,24 +315,24 @@ footer{
         display:none;
     }
 }
+
 </style>
 </head>
-
-<body>
 
 <body>
 
 <div class="cursor-glow"></div>
 
 <nav>
-<div class="logo-nav">
-    <img src="logo.png" alt="SB Logo">
-    <span>GPX.SB</span>
-</div>
+
+    <div class="logo-nav">
+        <img src="logo.png" alt="GPX Logo">
+        <span>GPX.SB</span>
+    </div>
 
     <div class="links">
-        <a hreftsProjects</a>
-        <aabLab</a>
+        #projectsProjects</a>
+        #labLab</a>
         <a href="#about">About</a>
 
 </nav>
@@ -384,21 +356,22 @@ footer{
             A digital playground where I document projects,
             experiments and ideas whilst exploring technology,
             software and creative problem solving.
-
-            This is my place to build, learn and share.
         </p>
 
         <div class="buttons">
 
-    <a href="#projectsExplore Projects
-    </a>
+            #projects
+                Explore Projects
+            </a>
 
-    <a href="#lab" class="btn 
-    </a>
+            #lab
+                Enter The Lab
+            </a>
 
-</div>
+        </div>
 
-</div>
+    </div>
+
 </section>
 
 <section id="projects">
@@ -409,26 +382,17 @@ footer{
 
         <div class="card">
             <h3>Web Development</h3>
-            <p>
-                Designing and building modern websites,
-                interfaces and digital experiences.
-            </p>
+            <p>Designing and building modern websites and digital experiences.</p>
         </div>
 
         <div class="card">
             <h3>Programming</h3>
-            <p>
-                Learning through practical software
-                projects and challenges.
-            </p>
+            <p>Learning through practical software projects and challenges.</p>
         </div>
 
         <div class="card">
             <h3>Experiments</h3>
-            <p>
-                Testing ideas, concepts and creative
-                solutions.
-            </p>
+            <p>Testing ideas, concepts and creative solutions.</p>
         </div>
 
     </div>
@@ -443,26 +407,17 @@ footer{
 
         <div class="card">
             <h3>Current Focus</h3>
-            <p>
-                Learning software development,
-                web technologies and computer science.
-            </p>
+            <p>Learning software development, web technologies and computer science.</p>
         </div>
 
         <div class="card">
             <h3>Future Builds</h3>
-            <p>
-                Ideas, plans and concepts for
-                upcoming projects.
-            </p>
+            <p>Ideas, plans and concepts for upcoming projects.</p>
         </div>
 
         <div class="card">
             <h3>Learning Journey</h3>
-            <p>
-                Notes, discoveries and milestones
-                as I continue improving my skills.
-            </p>
+            <p>Notes, discoveries and milestones as I continue improving my skills.</p>
         </div>
 
     </div>
@@ -476,17 +431,10 @@ footer{
     <div class="card">
 
         <p>
-            Hi, I'm Seb.
-
-            I'm a student with a passion for technology,
-            software, design and digital creation.
-
-            GPX.SB is my personal corner of the internet,
-            where I share projects, experiments and things
-            I'm learning as I continue building my skills.
-
-            Every project represents something discovered,
-            improved or created.
+            Hi, I'm Seb. I'm a student with a passion for technology,
+            software, design and digital creation. GPX.SB is my personal
+            corner of the internet where I share projects, experiments
+            and things I'm learning as I continue building my skills.
         </p>
 
     </div>
@@ -515,9 +463,3 @@ document.addEventListener("mousemove",(e)=>{
     glow.style.top = e.clientY + "px";
 
 });
-
-</script>
-
-</body>
-</html>
-            
