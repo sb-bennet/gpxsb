@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GPX.SB</title>
+logo.png
+``
 
 <style>
 :root{
@@ -117,17 +118,35 @@ nav{
     z-index:1000;
 }
 
-.logo-nav {
-  font-weight: 700;
-  color: var(--accent);
-  letter-spacing: 3px;
-  
-  text-shadow:
-    0 0 10px rgba(57, 255, 136, .8),
-    0 0 20px rgba(57, 255, 136, .5),
-    0 0 40px rgba(57, 255, 136, .3);
+.logo-nav{
+    display:flex;
+    align-items:center;
+    gap:15px;
+
+    font-weight:700;
+    color:var(--accent);
+    letter-spacing:3px;
+
+    text-shadow:
+        0 0 10px rgba(57,255,136,.8),
+        0 0 20px rgba(57,255,136,.5),
+        0 0 40px rgba(57,255,136,.3);
 }
 
+.logo-nav img{
+    height:55px;
+    width:auto;
+
+    filter:
+        drop-shadow(0 0 10px rgba(57,255,136,.8))
+        drop-shadow(0 0 25px rgba(57,255,136,.4));
+
+    transition:.3s;
+}
+
+.logo-nav img:hover{
+    transform:scale(1.05);
+}
 .links{
     display:flex;
     gap:25px;
@@ -313,8 +332,9 @@ footer{
 <nav>
 
     <div class="logo-nav">
-        GPX.SB
-    </div>
+    logo.png
+    <span>GPX.SB</span>
+</div>
 
     <div class="links">
         <a hreftsProjects</a>
