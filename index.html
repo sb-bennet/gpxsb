@@ -306,6 +306,8 @@ footer{
 
 <body>
 
+<body>
+
 <div class="cursor-glow"></div>
 
 <nav>
@@ -315,10 +317,9 @@ footer{
     </div>
 
     <div class="links">
-        #projectsProjects</a>
-        #labLab</a>
-        <aboutAbout</a>
-    </div>
+        <a hreftsProjects</a>
+        <aabLab</a>
+        <a href="#about">About</a>
 
 </nav>
 
@@ -433,7 +434,7 @@ footer{
 
     <h2 class="section-title">About</h2>
 
-    <div class="about">
+    <div class="card">
 
         <p>
             Hi, I'm Seb.
@@ -443,4 +444,41 @@ footer{
 
             GPX.SB is my personal corner of the internet,
             where I share projects, experiments and things
+            I'm learning as I continue building my skills.
+
+            Every project represents something discovered,
+            improved or created.
+        </p>
+
+    </div>
+
+</section>
+
+<footer>
+
+    <h3 style="color:#39ff88;margin-bottom:10px;">
+        GPX.SB
+    </h3>
+
+    <p>
+        Building • Learning • Experimenting
+    </p>
+
+</footer>
+
+<script>
+
+const glow = document.querySelector(".cursor-glow");
+
+document.addEventListener("mousemove",(e)=>{
+
+    glow.style.left = e.clientX + "px";
+    glow.style.top = e.clientY + "px";
+
+});
+
+</script>
+
+</body>
+</html>
             
